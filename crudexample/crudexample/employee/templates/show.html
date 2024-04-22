@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Financial Records</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>ISIN</th>  
+        <th>Symbol</th>  
+        <th>Date</th>  
+        <th>Asset class</th>  
+        <th>Quantity</th> 
+        <th>Market pricey</th> 
+        <th>Cost Price</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for employee in employees %}  
+    <tr>  
+        <td>{{ ISIN}}</td>  
+        <td>{{Symbol}}</td>  
+        <td>{{date }}</td>  
+        <td>{{assetclass}}</td>
+        <td>{{Quantity}}</td>
+        <td>{{ MarketPrice}}</td>  
+        <td>{{ CostPrice}}</td> 
+        <td>  
+            <a href="/edit/{{ employee.ISIN }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ employee.ISIN }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
